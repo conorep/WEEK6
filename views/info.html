@@ -1,13 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Info Page Week 6</title>
+    <!-- Required meta tags -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    
+    <title>{{ @title }}</title>
 </head>
 <body>
-    <h1>info info info</h1>
+    <h1>Big Templating Info</h1>
+    <p>Fahrenheit: {{ @temp }} degrees</p>
+    <p>Celsius: {{ round ((@temp - 32) * (5.0/9.0), 2) }} degrees</p>
+    
+    <br>
+    
+    <p>I like {{ @color }}</p>
+    
+    <br>
+    
+    <p>Radius: {{@radius}}</p>
+    <p>Circumference: {{ round ( 2 * pi() * @radius )}}</p>
+    
+    <br>
+    
+    <h5>FRUIT</h5>
+    <ul>
+        <repeat group="{{$fruits}}" value="{{@fruito}}">
+            <li>{{$fruito}}</li>
+        </repeat>
+    </ul>
+    
+    <br>
+    
+    <h3>Dessert Options</h3>
+    <repeat group="{{@desserts}}" key="{{@key}}" value="{{@dessert}}">
+        <input type="checkbox" value="{{@key}}">{{@dessert}}<br>
+    </repeat>
+    
+    <h3>Color Choices</h3>
+    <repeat group="{{ @colors }}" value="{{ @color }}">
+        <label>
+            <input id="{{ @color }}" type="radio" name="color" value="{{ @color}}" >{{ @color }}
+        </label>
+        <br>
+    </repeat>
+    
+    
 </body>
 </html>
